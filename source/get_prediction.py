@@ -60,15 +60,9 @@ def predict_next_trigram(word1, word2):
         next_word, _ = max(words, key=lambda x: x[1] / total_count)
         return next_word
 
-    # Step 2: Backoff to bigram using word2
+    # Step 2: Backoff to bigram using word1
     words_bi = [(w2, c) for (w1, w2), c in bi_freq.items() if w1 == word2]
     if words_bi:
-        print(f"Trigram '{word1} {word2}' not found. Backing off to bigram with '{word2}'.")
-        return predict_next_bigram(word2)
-
-    # Step 3: Backoff to bigram using word1
-    words_bi_w1 = [(w2, c) for (w1, w2), c in bi_freq.items() if w1 == word1]
-    if words_bi_w1:
         print(f"Trigram '{word1} {word2}' not found. Backing off to bigram with '{word1}'.")
         return predict_next_bigram(word1)
 

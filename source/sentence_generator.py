@@ -35,7 +35,7 @@ def generate_sentence(start_words=None):
 
         # If only one word after <s> → bigram
         elif len(sentence) == 2:
-            next_word = predict_next_bigram(sentence[1])
+            next_word = predict_next_bigram(sentence[-1])
 
         # Only <s> → unigram
         else:
