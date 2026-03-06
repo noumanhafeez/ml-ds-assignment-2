@@ -1,4 +1,4 @@
-# pipeline.py
+# source/pipeline.py
 
 from .data_ingestion  import read_file
 from .preprocessing import preprocess
@@ -38,5 +38,5 @@ def run_pipeline(file_path):
     print("\nExample Sentences:")
     print("-----------------")
     print("Random sentence:", generate_sentence())
-    print("Sentence starting with 'tarts':", generate_sentence(['tarts']))
+    print("Sentence starting with 'creep':", generate_sentence(['creep']))
     print("Sentence starting with 'in the':", generate_sentence(['in', 'the']))

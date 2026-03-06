@@ -1,3 +1,5 @@
+# source/sentence_generator
+
 from .get_prediction import predict_next_unigram, predict_next_bigram, predict_next_trigram
 
 
