@@ -1,72 +1,73 @@
-# NLP N-gram Prediction and Sentence Generation Pipeline
+# N-gram Language Model & Sentence Generator
 
-## Overview
-# This project implements a full NLP pipeline for text preprocessing, n-gram modeling, next-word prediction, and sentence generation.
-# It supports unigram, bigram, and trigram language models with backoff for missing n-grams.
-# Users can interactively predict the next word or generate sentences starting from 0, 1, or 2 words.
+## This project implements a trigram-based language model using unigrams, bigrams, and trigrams to predict the next word and generate sentences from text data. It is designed to work with Project Gutenberg text files but can be used with any plain text.
 
-## Features
-# Preprocess text data by cleaning, lowercasing, removing Project Gutenberg headers/footers, and adding sentence boundary tokens.
-# Generate unigrams, bigrams, and trigrams from tokenized text.
-# Calculate frequency distributions for uni-, bi-, and trigrams for probabilistic next-word predictions.
-# Predict next words using unigram, bigram, and trigram models with maximum likelihood estimation (MLE) and backoff.
-# Generate sentences of up to a configurable maximum length using trigram model with backoff.
-# Interactive command-line interface for predicting words or generating sentences.
+## The project includes a pipeline for data ingestion, preprocessing, n-gram generation, and interactive next-word prediction or sentence generation.
 
-## Installation
-# 1. Clone the repository to your local machine.
-# 2. Ensure Python 3.8+ is installed.
-# 3. Install any dependencies if needed (standard Python libraries used, no external packages required).
+# Project Structure
 
-## Project Structure
-# main.py
-# - Entry point of the project.
-# - Runs the full pipeline and starts interactive user session.
-# source/
-# ├── __init__.py
-# ├── data_ingestion.py        # Functions to read text files
-# ├── preprocessing.py         # Text preprocessing and tokenization
-# ├── n_grams.py               # Generate uni-, bi-, and trigrams, and compute frequencies
-# ├── get_prediction.py        # Next-word prediction functions and frequency setup
-# ├── sentence_generator.py    # Generate sentences using trigram model with backoff
-# ├── pipeline.py              # Full pipeline orchestration
-# └── user_pipeline.py         # Interactive CLI for user input
+``` word-predictor-and-sentence-generator/
+│
+├─ main.py                   # Entry point for running the pipeline and interactive interface
+├─ gutenberg.txt             # Example text file (Project Gutenberg) for training
+│
+└─ source/
+   ├─ __init__.py            # Marks the folder as a Python package
+   ├─ data_ingestion.py      # Reads text files
+   ├─ preprocessing.py       # Preprocess text: remove headers/footers, clean, tokenize
+   ├─ n_grams.py             # Generate uni/bi/trigrams and frequency counts
+   ├─ get_prediction.py      # Functions to predict next unigram, bigram, trigram
+   ├─ sentence_generator.py  # Generate sentences based on n-grams
+   ├─ pipeline.py            # Full pipeline orchestration
+   └─ user_pipeline.py       # Interactive user interface for predictions and sentence generation
+``` 
 
-## Usage
-# 1. Place your text file (e.g., gutenberg.txt) in the project directory.
-# 2. Run the main script:
-#    ```
-#    python main.py
-#    ```
-# 3. The pipeline will:
-#    - Load and preprocess text
-#    - Generate n-grams and calculate frequencies
-#    - Display example predictions and generated sentences
-# 4. In the interactive menu:
-#    - Option 1: Predict next word after entering 0, 1, or 2 words.
-#    - Option 2: Generate a sentence starting with 0, 1, or 2 words.
-#    - Option 3: Exit the interactive session.
+# Setup & Installation
 
-## Example Predictions
-# Most likely unigram: displays the most frequent single word in the text.
-# Next word after 'very': displays predicted next word using bigram model.
-# Next word after 'in the': displays predicted next word using trigram model.
-# Random sentence: generates a random sentence using trigram model with backoff.
-# Sentence starting with 'creep' or 'in the': generates sentences starting with given words.
+## 1. Clone the repository:
 
-## Functions
-# read_file(path) - Reads text file and returns content as string.
-# preprocess(text) - Cleans text, splits into tokens, and adds boundary tokens.
-# get_unigram(tokens), get_bigrams(tokens), get_trigrams(tokens) - Generate n-grams.
-# get_ngram_frequencies(tokens) - Returns frequency counters for uni-, bi-, and trigrams.
-# set_frequencies(uni, bi, tri) - Stores frequencies for prediction.
-# predict_next_unigram() - Predict next word using unigram model.
-# predict_next_bigram(word) - Predict next word using bigram model with backoff.
-# predict_next_trigram(word1, word2) - Predict next word using trigram model with backoff.
-# generate_sentence(start_words=None) - Generate sentence using trigram model, starting with optional words.
-# user_interaction() - Provides CLI interface for predictions and sentence generation.
+```
+git clone https://github.com/your-username/word-predictor-and-sentence-generator.git
+cd word-predictor-and-sentence-generator
+```
 
-## Notes
-# The project is designed to handle English text from Project Gutenberg files.
-# Sentence generation respects start tokens '<s>' and end tokens '</s>'.
-# Backoff ensures that predictions are made even if specific bigrams or trigrams are not found in the text.
+## 2. Install Python 3 (if not already installed). Recommended: Python 3.10+
+## 3. Create a virtual environment (optional but recommended):
+
+```
+python -m venv venv
+# Activate environment:
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+```
+
+## 4. Install required packages:
+### This project uses only Python standard libraries (collections, re). No extra packages are required.
+
+# How to Run
+
+## 1. Make sure your text file (e.g., gutenberg.txt) is in the project root.
+## 2. Run the main script:
+```
+python main.py
+```
+
+## 3. The pipeline will:
+
+### i. Load the text file
+
+### ii. Preprocess and tokenize it
+
+### iii. Build uni/bi/trigrams and frequency counters
+
+### iv. Display example predictions and generated sentences
+
+### v. Start an interactive session where you can:
+
+### vi. Predict the next word
+
+### vii. Generate sentences
+
+### viii. Exit the interface
