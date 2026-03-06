@@ -1,4 +1,4 @@
-# pipeline.py
+# source/pipeline.py
 
 from .data_ingestion  import read_file
 from .preprocessing import preprocess
@@ -8,7 +8,7 @@ from .sentence_generator import generate_sentence
 
 def run_pipeline(file_path):
     """
-    Run the full NLP pipeline:
+    Run the full pipeline:
     - Load data
     - Preprocess
     - Build n-grams
@@ -32,11 +32,11 @@ def run_pipeline(file_path):
     print("\nExample Predictions:")
     print("-------------------")
     print(f"Most likely unigram: {predict_next_unigram()}")
-    print(f"Next word after 'alice': {predict_next_bigram('alice')}")
+    print(f"Next word after 'very': {predict_next_bigram('very')}")
     print(f"Next word after 'in the': {predict_next_trigram('in', 'the')}")
 
     print("\nExample Sentences:")
     print("-----------------")
     print("Random sentence:", generate_sentence())
-    print("Sentence starting with 'tarts':", generate_sentence(['tarts']))
+    print("Sentence starting with 'creep':", generate_sentence(['creep']))
     print("Sentence starting with 'in the':", generate_sentence(['in', 'the']))
