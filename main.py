@@ -1,7 +1,9 @@
 # main.py
 
+from source.pipeline import run_pipeline
 from source.get_prediction import predict_next_unigram, predict_next_bigram, predict_next_trigram
 from source.sentence_generator import generate_sentence
+
 
 def user_interaction():
     """
