@@ -1,10 +1,10 @@
 # pipeline.py
 
-from data_ingestion import read_file
-from preprocessing import preprocess
-from n_grams import get_ngram_frequencies
-from get_prediction import set_frequencies, predict_next_unigram, predict_next_bigram, predict_next_trigram
-from sentence_generator import generate_sentence
+from source.data_ingestion import read_file
+from source.preprocessing import preprocess
+from source.n_grams import get_ngram_frequencies
+from source.get_prediction import set_frequencies, predict_next_unigram, predict_next_bigram, predict_next_trigram
+from source.sentence_generator import generate_sentence
 
 def run_pipeline(file_path):
     """
