@@ -28,7 +28,7 @@
 ## 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/word-predictor-and-sentence-generator.git
+git clone https://github.com/noumanhafeez/ml-ds-assignment-2
 cd word-predictor-and-sentence-generator
 ```
 
